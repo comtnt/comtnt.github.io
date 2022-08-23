@@ -1,8 +1,11 @@
 from sanic import Sanic
-from sanic.response import text
+from sanic.response import json
 
-app = Sanic("MyHelloWorldApp")
+app = Sanic("my-hello-world-app")
 
-@app.get("/")
-async def hello_world(request):
-    return text("Hello, world.")
+@app.route('/')
+async def test(request):
+    return json({'hello': 'world'})
+
+if __name__ == '__main__':
+    app.run()
